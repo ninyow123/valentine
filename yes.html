@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yay!</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Special styles for the floating flood effect */
+        body {
+            overflow: hidden; /* Prevents scrollbars when GIFs fly around */
+        }
+        .floater {
+            position: absolute;
+            width: 100px; /* Adjust size of floating GIFs */
+            height: auto;
+            pointer-events: none; /* Stops them from blocking clicks */
+            z-index: -1; /* Keeps them behind the main text */
+            animation: floatUp 4s linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-20vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <h2 class="question">Hehehe, I knew you'd say yes! ❤️</h2>
+        <img class="gif" src="https://media.tenor.com/VGWpu8FH82AAAAAM/happy-cat-yippee-cat.gif" alt="Happy GIF">
+    </div>
+
+    <script>
+        function createFloater() {
+            const gifUrls = [
+                'https://media.tenor.com/owsPz6f26FcAAAAM/happy-cat-silly-cat.gifz',
+                'https://media.tenor.com/AN83u7YyqwUAAAAM/maxwell-the-cat.gif'
+            ];
+
+            const floater = document.createElement('img');
+            floater.src = gifUrls[Math.floor(Math.random() * gifUrls.length)];
+            floater.className = 'floater';
+            
+            // Random horizontal position
+            floater.style.left = Math.random() * 100 + "vw";
+            
+            // Random size for variety
+            const size = Math.random() * 100 + 50;
+            floater.style.width = size + "px";
+            
+            // Random animation duration
+            floater.style.animationDuration = (Math.random() * 3 + 2) + "s";
+            
+            document.body.appendChild(floater);
+
+            // Remove the element after animation ends to keep the page fast
+            setTimeout(() => {
+                floater.remove();
+            }, 5000);
+        }
+
+        // Create a new GIF every 300ms
+        setInterval(createFloater, 300);
+    </script>
+</body>
+</html>

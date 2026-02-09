@@ -1,0 +1,80 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; /* A cleaner, rounded font looks better here */
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #fce4ec; /* Warmer soft pink */
+}
+
+.wrapper {
+    text-align: center;
+    padding: 20px;
+}
+
+h2 {
+    font-size: 2.8em;
+    color: #d81b60;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.gif {
+    width: 250px;
+    height: auto;
+    border-radius: 20px;
+    border: 8px solid #fff; /* White frame like your image */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+.btn-group {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    height: 55px;
+}
+
+/* Updated selector to target both button and the Yes link */
+.yes-btn, .no-btn {
+    width: 140px;
+    height: 55px;
+    border-radius: 30px;
+    font-size: 1.2em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    display: flex;         /* Added to center text in <a> tag */
+    justify-content: center;
+    align-items: center;
+    text-decoration: none; /* Removes the underline from link */
+    box-shadow: 0 5px 15px rgba(233, 77, 88, 0.3);
+}
+
+.yes-btn {
+    background-color: #e94d58; /* Solid red/pink */
+    color: white;
+}
+
+.yes-btn:hover {
+    background-color: #ff5e6a;
+    transform: scale(1.1); /* "Pop" effect */
+}
+
+.no-btn {
+    background-color: #ffffff;
+    color: #e94d58;
+    border: 2px solid #e94d58;
+}
+
+/* Ensure the absolute positioning doesn't break the layout when it moves */
+.no-btn[style*="position: absolute"] {
+    transition: none; /* Makes the teleporting feel instant and snappy */
+}
